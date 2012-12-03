@@ -1,1 +1,11 @@
 h1. README
+
+To run the application, please follow the instruction:
+
+# rvm install 1.9.3-p327
+
+# rvm --create use 1.9.3-p327@demp
+
+# bundle install
+
+# rake server:start
