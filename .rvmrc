@@ -1,0 +1,2 @@
+vm_install_on_use_flag=1
+rvm --create use 1.9.3-p327@demp
