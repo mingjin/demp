@@ -14,70 +14,76 @@
 	<body>
 		
 		<div id="header">
-			<h1><a href="dashboard.html">Unicorn Admin</a></h1>		
-		</div>
-		
-		<div id="search">
-			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
-		</div>
-		<div id="user-nav" class="navbar navbar-inverse">
+            <h1><a href="#">ThoughtWorks</a></h1>       
+        </div>
+        
+        <div id="search">
+            <input type="text" placeholder="输入查询..."/><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
+        </div>
+        <div id="user-nav" class="navbar navbar-inverse">
             <ul class="nav btn-group">
-                <li class="btn btn-inverse" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Profile</span></a></li>
-                <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+                <li class="btn btn-inverse" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">个人资料</span></a></li>
+                <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">消息</span> <span class="label label-important">5</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a class="sAdd" title="" href="#">new message</a></li>
-                        <li><a class="sInbox" title="" href="#">inbox</a></li>
-                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
-                        <li><a class="sTrash" title="" href="#">trash</a></li>
+                        <li><a class="sAdd" title="" href="#">创建消息</a></li>
+                        <li><a class="sInbox" title="" href="#">收件箱</a></li>
+                        <li><a class="sOutbox" title="" href="#">发件箱</a></li>
+                        <li><a class="sTrash" title="" href="#">回收站</a></li>
                     </ul>
                 </li>
-                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">选项</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
             </ul>
         </div>
             
-		<div id="sidebar">
-			<a href="#" class="visible-phone"><i class="icon icon-th-list"></i> Tables</a>
-			<ul>
-				<li><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a></li>
-				<li class="submenu">
-					<a href="#"><i class="icon icon-th-list"></i> <span>Form elements</span> <span class="label">3</span></a>
-					<ul>
-						<li><a href="form-common.html">Common elements</a></li>
-						<li><a href="form-validation.html">Validation</a></li>
-						<li><a href="form-wizard.html">Wizard</a></li>
-					</ul>
-				</li>
-				<li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-				<li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Interface elements</span></a></li>
-				<li class="active"><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
-				<li><a href="grid.html"><i class="icon icon-th-list"></i> <span>Grid Layout</span></a></li>
-				<li class="submenu">
-					<a href="#"><i class="icon icon-file"></i> <span>Sample pages</span> <span class="label">4</span></a>
-					<ul>
-						<li><a href="invoice.html">Invioce</a></li>
-						<li><a href="chat.html">Support chat</a></li>
-						<li><a href="calendar.html">Calendar</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a>
-				</li>
-				<li>
-					<a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a>
-				</li>
-			</ul>
-		
-		</div>
-		
-		<div id="style-switcher">
-			<i class="icon-arrow-left icon-white"></i>
-			<span>Style:</span>
-			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
-			<a href="#blue" style="background-color: #2D2F57;"></a>
-			<a href="#red" style="background-color: #673232;"></a>
-		</div>
+        <div id="sidebar">
+            <a href="#" class="visible-phone"><i class="icon icon-th-large"></i>虚拟机</a>
+            <ul>
+                <li><a href="index.html"><i class="icon icon-home"></i> <span>仪表盘</span></a></li>
+                <li class="submenu">
+                    <a href="#"><i class="icon icon-th-list"></i> <span>我的实例</span> <span class="label">2</span></a>
+                    <ul>
+                        <li><a href="table-my-vm-instance.html">虚拟机</a></li>
+                        <li><a href="table-my-env-instance.html">多节点环境</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="icon icon-th"></i> <span>项目的实例</span> <span class="label">2</span></a>
+                    <ul>
+                        <li><a href="table-project-vm-instance.html">虚拟机</a></li>
+                        <li><a href="table-project-env-instance.html">多节点环境</a></li>
+                    </ul>
+                </li>
+                <li class="submenu active open">
+                    <a href="#"><i class="icon icon-th-large"></i> <span>项目的模板</span> <span class="label">3</span></a>
+                    <ul>
+                        <li class="active"><a href="table-vm-template.html">虚拟机</a></li>
+                        <li><a href="table-env-template.html">多节点环境</a></li>
+                        <li><a href="table-other-template.html">其他的公开模板</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="icon icon-list-alt"></i> <span>系统管理</span> <span class="label">6</span></a>
+                    <ul>
+                        <li><a href="table-project.html">项目</a></li>
+                        <li><a href="table-user.html">用户</a></li>
+                        <li><a href="table-template.html">模板</a></li>
+                        <li><a href="table-instance.html">实例</a></li>
+                        <li><a href="table-quota.html">规格 &amp; 计费</a></li>
+                        <li><a href="table-hardware.html">硬件</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="icon icon-signal"></i> <span>报表</span> <span class="label">4</span></a>
+                    <ul>
+                        <li><a href="chart-my-usage.html">我的使用状态</a></li>
+                        <li><a href="chart-project-usage.html">项目的使用状态</a></li>
+                        <li><a href="chart-overall-usage.html">整体使用状态</a></li>
+                        <li><a href="chart-hardware.html">硬件运行状态</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 		
 		<div id="content">
 			<div id="content-header">
@@ -195,5 +201,3 @@
     <script src="js/demo.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
-
-            <h3 id="myModalLabel">指定虚拟机模板</h3>
