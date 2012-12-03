@@ -110,18 +110,22 @@
                 <input id="btn-create-template" type="button" value="创建虚拟机模板" class="btn btn-inverse btn-mini" style="margin: 6px" data-toggle="modal">
 							</div>
 							<div class="widget-content nopadding">
-								<table id="tb-vm-template" class="table table-bordered table-striped">
+								<table id="tb-vm-template" class="table table-bordered table-striped data-table dataTable">
 									<thead>
-										<tr>
+										<tr role="row">
+                      <th width="5%"><input type="checkbox" id="title-table-checkbox" name="title-table-checkbox" /></th>
 											<th width="20%">名称</th>
-											<th width="30%">关键字</th>
-											<th width="20%">操作系统</th>
-											<th width="10%">大小</th>
-											<th width="10%">公开</th>
-											<th width="10%"></th>
+											<th width="20%">关键字</th>
+											<th width="10%">操作系统</th>
+											<th width="5%">大小</th>
+											<th width="5%">公开</th>
+											<th width="10%">状态</th>
+											<th width="20%">操作</th>
 										</tr>
 									</thead>
 									<tbody>
+									  <tr><td><input type="checkbox" opacity="0"></td><td>虚拟机模板1</td><td>虚拟机模板1</td><td>Ubuntu</td><td>18GB</td><td>否</td><td><span class="label label-success">运行中</span></td><td><button class="btn" data-original-title=""><i class="icon-user"></i></button><button class="btn" data-original-title=""><i class="icon-eye-open"></i></button><button class="btn" data-original-title=""><i class="icon-circle-arrow-down"></i></button><button class="btn" data-original-title=""><i class="icon-remove"></i></button></td></tr>
+									  <tr><td><input type="checkbox" opacity="0"></td><td>虚拟机模板2</td><td>虚拟机模板2</td><td>CentOS</td><td>16GB</td><td>是</td><td><span class="label">未启动</span></td><td><button class="btn" data-original-title=""><i class="icon-user"></i></button><button class="btn" data-original-title=""><i class="icon-eye-open"></i></button><button class="btn" data-original-title=""><i class="icon-circle-arrow-down"></i></button><button class="btn" data-original-title=""><i class="icon-remove"></i></button></td></tr>
 									</tbody>
 								</table>							
 							</div>
@@ -141,6 +145,12 @@
                 <label class="control-label">名称</label>
                 <div class="controls">
                   <input type="text" id="txt-name">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">关键字</label>
+                <div class="controls">
+                  <input type="text" id="txt-keywords">
                 </div>
               </div>
               <div class="control-group">
