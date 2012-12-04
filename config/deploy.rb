@@ -35,7 +35,8 @@ namespace :deploy do
   end
   
   task :stop, :roles => :app do 
-    run "cd #{current_path} && bundle exec thin stop -C config/environment.yml -e production"  
+    run "cd #{current_path} && bundle exec thin stop -C config/environment.yml -e production"
+    run "cd #{current_path} && rm -rf tmp && rm -rf log"
   end
   
   task :restart, :roles => :app  do
