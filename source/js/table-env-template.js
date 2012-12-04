@@ -51,19 +51,6 @@ function initNodeWizard(wizard) {
     table.appendChild(newRow);
   });
   wizard.on("step_shown", function(event, data){
-    var doCreateNode = function(e) {
-      e.preventDefault();
-      $("#create-node-popup").modal('hide');
-      createTableRow($("#tb-vm-multi-nodes"), [
-                    $("#txt-name").val(),
-                    $("#txt-desc").val(),
-                    newNodes.length,
-                    $("#cb-public")[0].checked ? "是" : "否",
-                    $("<span>").attr("class", "label").html("未启动")
-      ]);
-      resetWizard(wizard);
-      return false;
-    };
 
     if(data.isLastStep) {
       $("#sp-node-name").text($("#txt-name").val());
@@ -72,12 +59,20 @@ function initNodeWizard(wizard) {
       newNodes.forEach(function(node) {
         $("#collapseGTwo > .widget-content").append($("<span>").text(node.Name)).append("<br>");
       });
-
-      $("#btn-do-create-node").on("click", doCreateNode);
     }
-    //else
-      //$("#btn-do-create-node").off("click", doCreateNode);
 	});
+  wizard.ajaxComplete(function(e) {
+    $("#create-node-popup").modal('hide');
+    createTableRow($("#tb-vm-multi-nodes"), [
+                  $("#txt-name").val(),
+                  $("#txt-desc").val(),
+                  newNodes.length,
+                  $("#cb-public")[0].checked ? "是" : "否",
+                  $("<span>").attr("class", "label").html("未启动")
+    ]);
+    resetWizard(wizard);
+    return false;
+  });
 }
 $(function() {
   $wizard = $("#form-wizard");
