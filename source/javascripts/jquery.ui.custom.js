@@ -2236,7 +2236,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 		});
 
 		//Wrap the element if it cannot hold child nodes
-		if(this.element[0].nodeName.match(/canvas|textarea|input|select|button|img/i)) {
+		if(this.element[0].nodeName.match(/canvas|textarea|input|select|button|images/i)) {
 
 			//Create a wrapper element and set the wrapper to the new current internal element
 			this.element.wrap(

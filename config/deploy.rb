@@ -14,10 +14,9 @@ role :db, location, :primary=>true
 
 set :user, "ubuntu"
 ssh_options[:keys] = [File.join(".", "config/keys", "key_infra.pem")] 
-set :normalize_asset_timestamps, false
+#set :normalize_asset_timestamps, false
 
 set :rack_env, :production
-set :public_children, ["img","js","css"]
 
 # Load RVM's capistrano plugin.    
 require "rvm/capistrano"
