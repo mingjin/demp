@@ -11,9 +11,9 @@ namespace :server do
 end
 
 task :package do
-    sh 'bundle exec hpp process source public'
+    sh 'hpp process source public'
 end
 
 task :guard do
-    sh 'bundle exec hpp process source public --daemon'
+    sh 'hpp process source public --daemon'
 end

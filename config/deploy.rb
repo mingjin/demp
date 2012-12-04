@@ -27,20 +27,25 @@ set :rvm_ruby_string, '1.9.3-p327@demp'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
+before 'deploy:finalize_update', 'deploy:process_assets' 
 
 set :thin_pid, "tmp/pids/thin.pid"
 
 namespace :deploy do
+  task :process_assets, :roles => :app do
+    run "cd #{current_release} && bundle exec rake package"
+  end
+
   task :start, :roles => :app do
-    run "bundle exec thin start -C config/environment.yml"
+    run "cd #{current_path} && rm -rf tmp && rm -rf log"
+    run "cd #{current_path} && bundle exec thin start -C config/environment.yml"
   end
   
   task :stop, :roles => :app do 
-    run "if [ -f #{thin_pid} ]; then bundle exec thin stop; fi"
+    run "cd #{current_path} && if [ -f #{thin_pid} ]; then bundle exec thin stop; fi"
   end
   
-  task :restart, :roles => :app  do
-    run "cd #{current_path}"
+  task :restart, :roles => :app do
     stop
     start
   end
