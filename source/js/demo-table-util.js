@@ -3,6 +3,9 @@ function removeCurrentRow(e) {
   if(confirm("您确定要删除吗？"))
     $(this).parent().parent().remove();
 }
+function removeAllRows($table) {
+  $table.find("tbody > tr").remove();
+};
 
 function createTableRow($table, vals) {
   var table = $table[0].tBodies[0],

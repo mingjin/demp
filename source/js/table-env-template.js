@@ -1,6 +1,13 @@
-var $wizard = null, newNodes = [], wizardInitState = null;
+var $wizard = null, newNodes = [];
 function textBoxToLabel($txt) {
   $txt.parent().html($txt.val());
+}
+function resetWizard(wizard) {
+  wizard[0].reset();
+  wizard.formwizard("reset");
+  removeAllRows($("#tb-env-nodes-list"));
+  $("#collapseGTwo > .widget-content").html('');
+  newNodes = [];
 }
 function initNodeWizard(wizard) {
   wizard.formwizard({ 
@@ -8,10 +15,11 @@ function initNodeWizard(wizard) {
     validationEnabled: true,
     focusFirstInput : true,
     disableUIStyles : true,
+    textBack: "上一步",
+    textNext: "下一步",
+    textSubmit: "添加",
 
     formOptions :{
-      success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("<span>Form was submitted!</span>").fadeTo(5000, 0); })},
-      beforeSubmit: function(data){$("#submitted").html("<span>Form was submitted with ajax. Data sent to the server: " + $.param(data) + "</span>");},
       dataType: 'json',
       resetForm: true
     }
@@ -43,6 +51,20 @@ function initNodeWizard(wizard) {
     table.appendChild(newRow);
   });
   wizard.on("step_shown", function(event, data){
+    var doCreateNode = function(e) {
+      e.preventDefault();
+      $("#create-node-popup").modal('hide');
+      createTableRow($("#tb-vm-multi-nodes"), [
+                    $("#txt-name").val(),
+                    $("#txt-desc").val(),
+                    newNodes.length,
+                    $("#cb-public")[0].checked ? "是" : "否",
+                    $("<span>").attr("class", "label").html("未启动")
+      ]);
+      resetWizard(wizard);
+      return false;
+    };
+
     if(data.isLastStep) {
       $("#sp-node-name").text($("#txt-name").val());
       $("#sp-node-desc").text($("#txt-desc").val());
@@ -51,29 +73,14 @@ function initNodeWizard(wizard) {
         $("#collapseGTwo > .widget-content").append($("<span>").text(node.Name)).append("<br>");
       });
 
-
-      $("#btn-do-create-node").one("click", function(e) {
-        e.preventDefault();
-        $("#create-node-popup").modal('hide');
-        createTableRow($("#tb-vm-multi-nodes"), [
-                      $("#txt-name").val(),
-                      $("#txt-desc").val(),
-                      newNodes.length,
-                      $("#cb-public")[0].checked ? "是" : "否",
-                      $("<span>").attr("class", "label").html("未启动")
-        ]);
-        document.getElementById("form-wizard").reset();
-
-        wizard.html(wizardInitState);
-        initNodeWizard(wizard);
-        return false;
-      });
+      $("#btn-do-create-node").on("click", doCreateNode);
     }
+    //else
+      //$("#btn-do-create-node").off("click", doCreateNode);
 	});
 }
 $(function() {
   $wizard = $("#form-wizard");
-  wizardInitState = $wizard.html();
   initNodeWizard($wizard);
   $("#btn-create-node").click(function(e) {
     e.preventDefault();
@@ -83,4 +90,8 @@ $(function() {
       "show"      : true                 
     });
   });
+  $("#tb-vm-multi-nodes td>button.btn>i.icon-user").tooltip({title: "团队可见"});
+  $("#tb-vm-multi-nodes td>button.btn>i.icon-eye-open").tooltip({title: "整体可见"});
+  $("#tb-vm-multi-nodes td>button.btn>i.icon-circle-arrow-down").tooltip({title: "隐藏"});
+  $("#tb-vm-multi-nodes td>button.btn>i.icon-remove").tooltip({title: "删除"});
 });
