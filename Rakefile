@@ -2,7 +2,11 @@ require 'rake'
 
 namespace :server do
   task :start do
-    sh 'bundle exec rackup -p 4567'
+    sh 'thin start -C config/environment.yml'
+  end
+
+  task :stop do
+    sh 'thin stop -C config/environment.yml'
   end
 end
 

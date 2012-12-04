@@ -1,0 +1,14 @@
+---
+pid: tmp/pids/thin.pid
+address: 0.0.0.0
+timeout: 30
+port: 4567
+log: log/thin.log
+max_conns: 1024
+require: []
+
+environment: production
+timeout: 30
+max_conns: 1024
+max_persistent_conns: 512
+daemonize: true
