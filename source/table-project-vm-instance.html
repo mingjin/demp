@@ -4,7 +4,6 @@
             <div id="content-header">
                 <h1>虚拟机</h1>
                 <div class="btn-group">
-                    <a class="btn btn-large tip-bottom" title="创建虚拟机" data-toggle="modal" href="#create-vm-instance-popup"><i class="icon-plus"></i></a>
                     <a class="btn btn-large tip-bottom" title="启动虚拟机"><i class="icon-play"></i></a>
                     <a class="btn btn-large tip-bottom" title="停止虚拟机"><i class="icon-stop"></i></a>
                     <a class="btn btn-large tip-bottom" title="重启虚拟机"><i class="icon-retweet"></i></a>
@@ -13,7 +12,7 @@
             </div>
             <div id="breadcrumb">
                 <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a>
-                <a href="#" class="tip-bottom">我的实例</a>
+                <a href="#" class="tip-bottom">项目的实例</a>
                 <a href="#" class="current">虚拟机</a>
             </div>
             <div class="container-fluid">
@@ -845,55 +844,5 @@
                         </div>
                     </div>
                 </div>
-
-                <div id="create-vm-instance-popup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel"><i class="icon-pencil"></i> 创建虚拟机</h3>
-                      </div>
-                      <div class="modal-body">
-                        <form action="#" method="get" class="form-horizontal" id="form-vm-template">
-                          <div class="control-group">
-                            <label class="control-label">名称</label>
-                            <div class="controls">
-                              <input type="text" id="txt-name" length="25">
-                            </div>
-                          </div>
-                          <div class="control-group">
-                            <label class="control-label">自定义环境变量</label>
-                            <div class="controls">
-                              <textarea id="txt-desc" placeholder="key1=value1;key2=value2;"></textarea>
-                            </div>
-                          </div>
-                          <div class="control-group">
-                            <label class="control-label">选择虚拟机镜像</label>
-                            <div class="controls">
-                              <select name="" id="ddl-vm-template">
-                                <option>虚拟机镜像1</option>
-                                <option>虚拟机镜像2</option>
-                                <option>虚拟机镜像3</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div class="control-group">
-                            <label class="control-label">选择虚拟机规格</label>
-                            <div class="controls">
-                              <select name="" id="ddl-vm-spec">
-                                <option>超微型（1 VCPU，256M 内存，0G 硬盘）</option>
-                                <option>微型（1 VCPU，523M 内存，5G 硬盘）</option>
-                                <option>小型（1 VCPU，1G 内存，10G 硬盘）</option>
-                                <option>中型（2 VCPU，2G 内存，20G 硬盘）</option>
-                                <option>大型（2 VCPU，4G 内存，40G 硬盘）</option>
-                                <option>超大型（4 VCPU，8G 内存，60G 硬盘）</option>
-                              </select>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-                        <button class="btn btn-primary" data-dismiss="modal" id="btn-save">创建</button>
-                      </div>
-                    </div>
                 
                 <!--#include src="_footer.html"-->
