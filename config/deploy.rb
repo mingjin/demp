@@ -14,7 +14,7 @@ role :db, location, :primary=>true
 
 set :user, "ubuntu"
 ssh_options[:keys] = [File.join(".", "config/keys", "key_infra.pem")] 
-#set :normalize_asset_timestamps, false
+set :normalize_asset_timestamps, false
 
 set :rack_env, :production
 
@@ -25,15 +25,16 @@ set :rvm_path, '/usr/local/rvm/'
 set :rvm_bin_path, '/usr/local/rvm/bin'
 set :rvm_ruby_string, '1.9.3-p327@demp'
 
+
+set :thin_pid, "tmp/pids/thin.pid"
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
 before 'deploy:finalize_update', 'deploy:process_assets' 
 
-set :thin_pid, "tmp/pids/thin.pid"
-
 namespace :deploy do
   task :process_assets, :roles => :app do
-    run "cd #{current_release} && bundle exec rake package"
+#    run "rvm rvmrc trust #{current_release}"
+    run "cd #{current_release} && LC_ALL=en_US.UTF-8 hpp process source public"
   end
 
   task :start, :roles => :app do
