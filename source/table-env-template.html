@@ -1,0 +1,150 @@
+        <!--#include src="_header.html"-->
+		
+		<div id="content">
+			<div id="content-header">
+        <h1>多节点环境</h1>
+				<div class="btn-group">
+          <a id="btn-create-node" class="btn btn-large tip-bottom" title="创建节点" href="#"><i class="icon-plus"></i></a>
+					<a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
+					<a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
+					<a class="btn btn-large tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a>
+					<a class="btn btn-large tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a>
+				</div>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a>
+                <a href="#" class="tip-bottom">项目的模板</a>
+				<a href="#" class="current">多节点环境</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-th"></i>
+								</span>
+							</div>
+							<div class="widget-content nopadding">
+								<table id="tb-vm-multi-nodes" class="table table-bordered table-striped data-table dataTable">
+									<thead>
+										<tr role="row">
+                      <th width="5%"><input type="checkbox" id="title-table-checkbox" name="title-table-checkbox" /></th>
+											<th width="20%">名称</th>
+											<th width="20%">描述</th>
+											<th width="15%">节点数目</th>
+											<th width="5%">公开</th>
+											<th width="10%">状态</th>
+											<th width="20%">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+									  <tr><td><input type="checkbox" opacity="0"></td><td>虚拟机模板1</td><td>虚拟机模板1</td><td>2</td><td>否</td><td><span class="label label-success">运行中</span></td><td><button class="btn" data-original-title=""><i class="icon-user"></i></button><button class="btn" data-original-title=""><i class="icon-eye-open"></i></button><button class="btn" data-original-title=""><i class="icon-circle-arrow-down"></i></button><button class="btn" data-original-title=""><i class="icon-remove"></i></button></td></tr>
+									  <tr><td><input type="checkbox" opacity="0"></td><td>虚拟机模板2</td><td>虚拟机模板2</td><td>4</td><td>是</td><td><span class="label">未启动</span></td><td><button class="btn" data-original-title=""><i class="icon-user"></i></button><button class="btn" data-original-title=""><i class="icon-eye-open"></i></button><button class="btn" data-original-title=""><i class="icon-circle-arrow-down"></i></button><button class="btn" data-original-title=""><i class="icon-remove"></i></button></td></tr>
+									</tbody>
+								</table>							
+							</div>
+						</div>
+					</div>
+				</div>
+
+        
+        <div id="create-node-popup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">指定虚拟机模板参数</h3>
+          </div>
+          <div class="modal-body">
+            <div class="widget-content nopadding">
+              <form id="form-wizard" class="form-horizontal">
+                <div id="form-wizard-1" class="step">
+                  <div class="control-group">
+                    <label class="control-label">名称</label>
+                    <div class="controls">
+                      <input id="txt-name" type="text" name="" />
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">描述</label>
+                    <div class="controls">
+                      <input id="txt-desc" type="text" name="" />
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">公开</label>
+                    <div class="controls">
+                      <input type="checkbox" id="cb-public" value="" />
+                    </div>
+                  </div>
+                  
+                </div>
+                <div id="form-wizard-2" class="step">
+                  <table id="tb-env-nodes-list" class="table table-bordered">
+                    <thead>
+                      <tr role="row">
+                        <td>节点名称</td>
+                        <td>虚拟机模板</td>
+                        <td>属性</td>
+                        <td>
+                          <span class="btn" id="step2-create-node" data-original-title="创建节点"><i class="icon-plus-sign"></i></span>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+                <div id="form-wizard-3" class="step">
+                  <div class="accordion" id="collapse-group">
+                    <div class="accordion-group widget-box">
+                        <div class="accordion-heading">
+                            <div class="widget-title">
+                                <a data-parent="#collapse-group" href="#collapseGOne">
+                                  <span class="icon"><i class="icon-info-sign"></i></span>
+                                </a>
+                                <h5>基本信息</h5>
+                            </div>
+                        </div>
+                        <div class="accordion-body" id="collapseGOne">
+                            <div class="widget-content">
+                                <span>名称：</span>
+                                <span id="sp-node-name"></span>
+                                <br />
+                                <span>描述：</span>
+                                <span id="sp-node-desc"></span>
+                                <br />
+                                <span>公开：</span>
+                                <span id="sp-node-public"></span>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="accordion-group widget-box">
+                        <div class="accordion-heading">
+                            <div class="widget-title">
+                                <a data-parent="#collapse-group" href="#collapseGTwo">
+                                  <span class="icon"><i class="icon-magnet"></i></span>
+                                </a>
+                                <h5>节点列表</h5>
+                            </div>
+                        </div>
+                        <div class="accordion-body" id="collapseGTwo">
+                            <div class="widget-content">
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-actions">
+                    <input id="back" class="btn btn-primary" type="reset" value="Back" />
+                    <input id="btn-do-create-node" class="btn btn-primary" type="submit" value="Next" />
+                    <div id="status"></div>
+                </div>
+                <div id="submitted"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+				
+		<!--#include src="_footer.html"-->
+        <script src="js/demo-table-util.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/table-env-template.js" type="text/javascript" charset="utf-8"></script>
