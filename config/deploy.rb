@@ -14,6 +14,10 @@ role :db, location, :primary=>true
 
 set :user, "ubuntu"
 ssh_options[:keys] = [File.join(".", "config/keys", "key_infra.pem")] 
+set :normalize_asset_timestamps, false
+
+set :rack_env, :production
+set :public_children, ["img","js","css"]
 
 # Load RVM's capistrano plugin.    
 require "rvm/capistrano"
@@ -23,23 +27,21 @@ set :rvm_bin_path, '/usr/local/rvm/bin'
 set :rvm_ruby_string, '1.9.3-p327@demp'
 
 # if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "deploy:cleanup"
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+set :thin_pid, "tmp/pids/thin.pid"
 
-# If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start, :roles => :app do
-    run "cd #{current_path} && bundle exec thin start -C config/environment.yml -e production"
+    run "bundle exec thin start -C config/environment.yml"
   end
   
   task :stop, :roles => :app do 
-    run "cd #{current_path} && bundle exec thin stop -C config/environment.yml -e production"
-    run "cd #{current_path} && rm -rf tmp && rm -rf log"
+    run "if [ -f #{thin_pid} ]; then bundle exec thin stop; fi"
   end
   
   task :restart, :roles => :app  do
+    run "cd #{current_path}"
     stop
     start
   end
