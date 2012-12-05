@@ -85,8 +85,4 @@ $(function() {
       "show"      : true                 
     });
   });
-  $("#tb-vm-multi-nodes td>button.btn>i.icon-user").tooltip({title: "团队可见"});
-  $("#tb-vm-multi-nodes td>button.btn>i.icon-eye-open").tooltip({title: "整体可见"});
-  $("#tb-vm-multi-nodes td>button.btn>i.icon-circle-arrow-down").tooltip({title: "隐藏"});
-  $("#tb-vm-multi-nodes td>button.btn>i.icon-remove").tooltip({title: "删除"});
 });

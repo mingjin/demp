@@ -11,8 +11,8 @@ function createTableRow($table, vals) {
   var table = $table[0].tBodies[0],
   newRow = table.insertRow(0),
   cbCell = optCell = null,
-  btnTeamVisible = $("<button>").attr("class","btn").append($("<i>").attr("class","icon-user")).tooltip({title:"团队可见"}),
-  btnGlobalVisible = $("<button>").attr("class","btn").append($("<i>").attr("class","icon-eye-open")).tooltip({title:"整体可见"}),
+  btnTeamVisible = $("<button>").attr("class","btn").append($("<i>").attr("class","icon-user")).tooltip({title:"只对团队可见"}),
+  btnGlobalVisible = $("<button>").attr("class","btn").append($("<i>").attr("class","icon-eye-open")).tooltip({title:"对整体可见"}),
   btnHide = $("<button>").attr("class","btn").append($("<i>").attr("class","icon-circle-arrow-down")).tooltip({title:"隐藏"}),
   btnDel = $("<button>").attr("class","btn").append($("<i>").attr("class","icon-remove")).tooltip({title:"删除"});
   btnDel.click(removeCurrentRow);

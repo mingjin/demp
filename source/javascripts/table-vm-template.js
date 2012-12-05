@@ -18,9 +18,4 @@ $(function() {
     ]);
     document.getElementById("form-vm-template").reset();
   });
-  $("#tb-vm-template_wrapper td>button.btn>i.icon-user").tooltip({title: "团队可见"});
-  $("#tb-vm-template_wrapper td>button.btn>i.icon-eye-open").tooltip({title: "整体可见"});
-  $("#tb-vm-template_wrapper td>button.btn>i.icon-circle-arrow-down").tooltip({title: "隐藏"});
-  $("#tb-vm-template_wrapper td>button.btn>i.icon-remove").tooltip({title: "删除"});
-
 });
