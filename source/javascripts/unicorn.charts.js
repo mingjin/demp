@@ -37,7 +37,7 @@ $(document).ready(function(){
                 var x = item.datapoint[0].toFixed(2),
 					y = item.datapoint[1].toFixed(2);
                     
-                unicorn.flot_tooltip(item.pageX, item.pageY,item.series.label + " of " + x + " = " + y);
+                unicorn.Charts.flot_tooltip(item.pageX, item.pageY,item.series.label + " of " + x + " = " + y);
             }
             
         } else {
@@ -96,8 +96,7 @@ $(document).ready(function(){
 	});
 });
 
-
-unicorn = {
+unicorn.Charts = {
 		// === Tooltip for flot charts === //
 		flot_tooltip: function(x, y, contents) {
 			

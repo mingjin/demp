@@ -7,7 +7,7 @@ $(document).ready(function(){
 	
 	
 	// === Prepare peity charts === //
-	unicorn.peity();
+	unicorn.Dashboard.peity();
 	
 	// === Prepare the chart data ===/
 	var sin = [], cos = [];
@@ -41,7 +41,7 @@ $(document).ready(function(){
                 var x = item.datapoint[0].toFixed(2),
 					y = item.datapoint[1].toFixed(2);
                     
-                unicorn.flot_tooltip(item.pageX, item.pageY,item.series.label + " of " + x + " = " + y);
+                unicorn.Dashboard.flot_tooltip(item.pageX, item.pageY,item.series.label + " of " + x + " = " + y);
             }
             
         } else {
@@ -111,8 +111,8 @@ $(document).ready(function(){
 	});
 });
 
-
-unicorn = {
+unicorn = {};
+unicorn.Dashboard = {
 		// === Peity charts === //
 		peity: function(){		
 			$.fn.peity.defaults.line = {
