@@ -8,19 +8,21 @@ $(document).ready(function(){
 	// === Prepare the chart data ===/
 	var sin = [], cos = [];
     for (var i = 0; i < 14; i += 0.5) {
-        sin.push([i, Math.sin(i)]);
-        cos.push([i, Math.cos(i)]);
+        sin.push([i, i+Math.ceil(Math.random()*3)]);
+       if(i<7) {cos.push([i, 30]);}
+       if(i==7) {cos.push([i, 40]);}
+       if(i>7) {cos.push([i, 45]);}
     }
 
 	// === Make chart === //
     var plot = $.plot($(".chart"),
-           [ { data: sin, label: "sin(x)", color: "#BA1E20"}, { data: cos, label: "cos(x)",color: "#459D1C" } ], {
+           [ { data: sin, label: "使用量", color: "#BA1E20"}, { data: cos, label: "可用总量",color: "#459D1C" } ], {
                series: {
                    lines: { show: true },
                    points: { show: true }
                },
                grid: { hoverable: true, clickable: true },
-               yaxis: { min: -1.6, max: 1.6 }
+               yaxis: { min: 0, max: 60 }
 		   });
     
 	// === Point hover in chart === //
@@ -49,10 +51,11 @@ $(document).ready(function(){
     });	
     
     var data = [];
-	var series = Math.floor(Math.random()*10)+1;
+	// var series = Math.floor(Math.random()*10)+1;
+    var series = 4;
 	for( var i = 0; i<series; i++)
 	{
-		data[i] = { label: "Series"+(i+1), data: Math.floor(Math.random()*100)+1 }
+		data[i] = { label: "成员"+(i+1), data: Math.floor(Math.random()*100)+1 }
 	}
 	
     var pie = $.plot($(".pie"), data,{
@@ -79,7 +82,7 @@ $(document).ready(function(){
 		}
 	});
     var d1 = [];
-    for (var i = 0; i <= 10; i += 1) d1.push([i, parseInt(Math.random() * 30)]);
+    for (var i = 0; i < 4; i += 1) d1.push([i, parseInt(Math.random() * 30)]);
 
 	var data = new Array(); 
 	data.push({
