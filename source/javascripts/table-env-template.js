@@ -1,5 +1,5 @@
 var $wizard = null, newNodes = [];
-function textBoxToLabel($txt) {
+function formValToLabel($txt) {
   $txt.parent().html($txt.val());
 }
 function resetWizard(wizard) {
@@ -8,6 +8,13 @@ function resetWizard(wizard) {
   removeAllRows($("#tb-env-nodes-list"));
   $("#collapseGTwo > .widget-content").html('');
   newNodes = [];
+}
+function drawVMTemplatesDDL(argument) {
+  var ddl = $("<select>");
+  ["应用服务器", "Apache服务器", "数据库服务器"].forEach(function(val) {
+    ddl.append($("<option>").text(val).val(val));
+  });
+  return ddl;
 }
 function initNodeWizard(wizard) {
   wizard.formwizard({ 
@@ -27,24 +34,24 @@ function initNodeWizard(wizard) {
   $("#step2-create-node").click(function(e) {
     var table = document.getElementById("tb-env-nodes-list").tBodies[0],
     txtNodeName = $("<input>").attr("type","text"),
-    txtVMTemplate = $("<input>").attr("type","text"),
+    ddlVMTemplate = drawVMTemplatesDDL(),
     txtProperty = $("<input>").attr("type","text"),
     btnDel = $("<span>").attr("class","btn").append($("<i>").attr("class", "icon-remove"));
     btnDel.click(removeCurrentRow);
     txtProperty.blur(function() {
       newNodes.push({
         Name: txtNodeName.val(),
-        Template: txtVMTemplate.val(),
+        Template: ddlVMTemplate.val(),
         Property: txtProperty.val()
       });
-      textBoxToLabel(txtNodeName);
-      textBoxToLabel(txtVMTemplate);
-      textBoxToLabel(txtProperty);
+      formValToLabel(txtNodeName);
+      formValToLabel(ddlVMTemplate);
+      formValToLabel(txtProperty);
     });
 
     var newRow = table.insertRow(0);
     $(newRow.insertCell(0)).append(txtNodeName);
-    $(newRow.insertCell(1)).append(txtVMTemplate);
+    $(newRow.insertCell(1)).append(ddlVMTemplate);
     $(newRow.insertCell(2)).append(txtProperty);
     $(newRow.insertCell(3)).append(btnDel);
 
