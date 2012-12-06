@@ -34,6 +34,7 @@ before 'deploy:finalize_update', 'deploy:process_assets'
 namespace :deploy do
   task :process_assets, :roles => :app do
 #    run "rvm rvmrc trust #{current_release}"
+    run "cd #{current_release} && bundle install"
     run "cd #{current_release} && LC_ALL=en_US.UTF-8 hpp process source public"
   end
 
